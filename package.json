@@ -1,0 +1,23 @@
+{
+  "name": "playwright-record-replay",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "lint": "yarn workspaces foreach -A run lint",
+    "format_write": "prettier --write .",
+    "format_check": "prettier --check ."
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "lint-staged": {
+    "*.{ts,js,tsx,jsx,css,md}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": ">=7",
+    "lint-staged": ">=10",
+    "prettier": "^3.5.3"
+  },
+  "packageManager": "yarn@4.9.1"
+}
