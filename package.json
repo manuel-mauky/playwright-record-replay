@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "^22.0.0",
+    "yarn": "^4.9.0"
+  },
   "scripts": {
     "lint": "yarn workspaces foreach -A run lint",
     "format_write": "prettier --write .",
