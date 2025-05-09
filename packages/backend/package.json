@@ -1,0 +1,24 @@
+{
+  "name": "playwright-record-replay-backend",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "types": "./dist/@types",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/server.ts",
+    "serve": "node dist/server.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.17",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
