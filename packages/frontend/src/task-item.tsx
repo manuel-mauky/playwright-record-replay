@@ -1,0 +1,63 @@
+import type { Task } from "playwright-record-replay-backend"
+import { useState } from "react"
+import { PiCheck, PiTrash, PiXCircle } from "react-icons/pi"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { deleteTask, updateTask } from "./tasks-api.ts"
+
+export function TaskItem({ task }: { task: Task }) {
+  const queryClient = useQueryClient()
+  const deleteMutation = useMutation({
+    mutationFn: deleteTask,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
+  })
+  const editMutation = useMutation({
+    mutationFn: updateTask,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
+  })
+
+  const [editMode, setEditMode] = useState(false)
+  const [newTitle, setNewTitle] = useState(() => task.title)
+
+  function onChangeTitle() {
+    editMutation.mutate({
+      ...task,
+      title: newTitle,
+    })
+    setEditMode(false)
+  }
+
+  function onCancelEdit() {
+    setNewTitle(task.title)
+    setEditMode(false)
+  }
+
+  function onDelete() {
+    deleteMutation.mutate(task.id)
+  }
+
+  return (
+    <div className="task-item">
+      <div className="task-item-title" onDoubleClick={() => setEditMode(true)}>
+        {editMode ? (
+          <>
+            <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
+            <button onClick={onChangeTitle}>
+              <PiCheck />
+            </button>
+            <button onClick={onCancelEdit}>
+              <PiXCircle />
+            </button>
+          </>
+        ) : (
+          <span>{task.title}</span>
+        )}
+      </div>
+
+      {!editMode && (
+        <button onClick={onDelete}>
+          <PiTrash />
+        </button>
+      )}
+    </div>
+  )
+}
