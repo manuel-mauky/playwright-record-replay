@@ -1,12 +1,19 @@
 import { useState } from "react"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { addTask } from "./tasks-api.ts"
+import { toast } from "./toast-util.ts"
 
 export function AddTasksForm() {
   const queryClient = useQueryClient()
   const mutation = useMutation({
     mutationFn: addTask,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
+    onSuccess: () => {
+      toast("Task added!")
+      return queryClient.invalidateQueries({ queryKey: ["tasks"] })
+    },
+    onError: (error) => {
+      toast(`An error occurred: ${error.message}`)
+    },
   })
 
   const [newTaskTitle, setNewTaskTitle] = useState("")
@@ -17,23 +24,12 @@ export function AddTasksForm() {
       setNewTaskTitle("")
     }
   }
-
   return (
     <div className="add-task-form">
-      {mutation.isPending ? (
-        "Adding task..."
-      ) : (
-        <>
-          {mutation.isError && <div>An error occurred: {mutation.error.message}</div>}
-
-          {mutation.isSuccess && <div>Task added!</div>}
-
-          <input type="text" value={newTaskTitle} onChange={(e) => setNewTaskTitle(e.target.value)} />
-          <button disabled={newTaskTitle.trim().length <= 0} onClick={addNewTask}>
-            Add
-          </button>
-        </>
-      )}
+      <input type="text" value={newTaskTitle} onChange={(e) => setNewTaskTitle(e.target.value)} />
+      <button disabled={newTaskTitle.trim().length <= 0} onClick={addNewTask}>
+        Add
+      </button>
     </div>
   )
 }

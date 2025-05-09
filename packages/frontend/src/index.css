@@ -90,3 +90,10 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/* needed for react-toastify to be able to disable animations */
+@keyframes noop {
+}
+.noop {
+  animation: noop 0s;
+}

@@ -3,12 +3,19 @@ import { useState } from "react"
 import { PiCheck, PiTrash, PiXCircle } from "react-icons/pi"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { deleteTask, updateTask } from "./tasks-api.ts"
+import { toast } from "./toast-util.ts"
 
 export function TaskItem({ task }: { task: Task }) {
   const queryClient = useQueryClient()
   const deleteMutation = useMutation({
     mutationFn: deleteTask,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
+    onSuccess: () => {
+      toast("Task deleted!")
+      return queryClient.invalidateQueries({ queryKey: ["tasks"] })
+    },
+    onError: (error) => {
+      toast(`An error occurred: ${error.message}`)
+    },
   })
   const editMutation = useMutation({
     mutationFn: updateTask,
@@ -35,12 +42,16 @@ export function TaskItem({ task }: { task: Task }) {
     deleteMutation.mutate(task.id)
   }
 
+  function onDoubleClick() {
+    setEditMode(true)
+  }
+
   return (
     <div className="task-item">
-      <div className="task-item-title" onDoubleClick={() => setEditMode(true)}>
+      <div className="task-item-title" onDoubleClick={onDoubleClick}>
         {editMode ? (
           <>
-            <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
+            <input autoFocus={true} type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
             <button onClick={onChangeTitle}>
               <PiCheck />
             </button>
