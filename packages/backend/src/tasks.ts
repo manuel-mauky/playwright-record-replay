@@ -70,3 +70,11 @@ function getTask(req: Request, res: Response) {
     return task
   }
 }
+
+/**
+ * used for testing. Resets the state of the tasks.
+ */
+export function reset() {
+  tasks = []
+  idCounter = 0
+}

@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import { router as tasksRouter } from "./tasks.js"
+import { router as tasksRouter, reset } from "./tasks.js"
 
 const app = express()
 
@@ -16,6 +16,13 @@ app.get("/", (req, res) => {
       tasks: `http://${req.headers.host}/tasks`,
     },
   })
+})
+
+// Allow resetting for testing purposes
+// A real-world app should not have such an endpoint but should probably go to the database directly
+app.post("/debug/reset", (_, res) => {
+  reset()
+  res.status(204).send()
 })
 
 app.listen(port, () => {
