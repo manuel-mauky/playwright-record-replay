@@ -19,7 +19,7 @@ export function TaskList() {
 
   return (
     <div>
-      <ul className="task-list">
+      <ul className="task-list" data-testid="task-list">
         {data.map((task) => (
           <li key={task.id}>
             <TaskItem task={task} />

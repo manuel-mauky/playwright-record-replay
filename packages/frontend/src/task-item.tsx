@@ -52,21 +52,22 @@ export function TaskItem({ task }: { task: Task }) {
         {editMode ? (
           <>
             <input autoFocus={true} type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
-            <button onClick={onChangeTitle}>
+            <button onClick={onChangeTitle} data-testid="change-ok" aria-label="change title">
               <PiCheck />
             </button>
-            <button onClick={onCancelEdit}>
+            <button onClick={onCancelEdit} data-testid="change-cancel" aria-label="cancel changing title">
               <PiXCircle />
             </button>
           </>
         ) : (
-          <span>{task.title}</span>
+          <span data-testid="title">{task.title}</span>
         )}
       </div>
 
       {!editMode && (
-        <button onClick={onDelete}>
+        <button onClick={onDelete} className="warning-button">
           <PiTrash />
+          Delete
         </button>
       )}
     </div>

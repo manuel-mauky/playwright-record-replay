@@ -10,6 +10,8 @@
   --color-button-bg: #1a1a1a;
   --color-button-border-hover: #646cff;
 
+  --color-button-warning-border: #ff5733;
+
   --color-task-item-bg: #333;
   --color-task-item-border: #aaa;
   --color-task-item-bg-hover: #444;
@@ -58,9 +60,9 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 
-  & > svg {
-    vertical-align: middle;
-  }
+  display: flex;
+  gap: 0.2em;
+  align-items: center;
 }
 button:hover {
   border-color: var(--color-button-border-hover);
@@ -68,6 +70,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+button.warning-button:hover {
+  border-color: var(--color-button-warning-border);
+}
+button.warning-button:focus,
+button.warning-button:focus-visible {
+  outline: 4px auto var(--color-button-warning-border);
 }
 
 @media (prefers-color-scheme: light) {

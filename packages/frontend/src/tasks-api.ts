@@ -1,9 +1,10 @@
 import type { Task } from "playwright-record-replay-backend"
 
-const API_URL = "http://localhost:4000/tasks"
+export const BASE_API_URL = "http://localhost:4000"
+const TASKS_API_URL = `${BASE_API_URL}/tasks`
 
 export async function fetchTasks() {
-  const response = await fetch(API_URL)
+  const response = await fetch(TASKS_API_URL)
   if (!response.ok) {
     throw new Error("Network response was not ok", { cause: response.statusText })
   }
@@ -14,7 +15,7 @@ export async function fetchTasks() {
 }
 
 export async function addTask(title: string) {
-  const response = await fetch(API_URL, {
+  const response = await fetch(TASKS_API_URL, {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +34,7 @@ export async function addTask(title: string) {
 }
 
 export async function updateTask(task: Task) {
-  const response = await fetch(`${API_URL}/${task.id}`, {
+  const response = await fetch(`${TASKS_API_URL}/${task.id}`, {
     method: "put",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +54,7 @@ export async function updateTask(task: Task) {
 }
 
 export async function deleteTask(id: number) {
-  const response = await fetch(`${API_URL}/${id}`, {
+  const response = await fetch(`${TASKS_API_URL}/${id}`, {
     method: "delete",
   })
 
