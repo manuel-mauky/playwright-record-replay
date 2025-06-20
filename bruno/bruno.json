@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "playwright-record-replay",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
