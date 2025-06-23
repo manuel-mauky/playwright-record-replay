@@ -1,5 +1,10 @@
 import { Router, Request, Response } from "express"
-import { Task } from "./types.js"
+
+export type Task = {
+  id: number
+  title: string
+  completed: boolean
+}
 
 export const router = Router()
 
