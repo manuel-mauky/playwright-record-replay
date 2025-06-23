@@ -8,8 +8,10 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:e2e": "playwright test",
-    "test:e2e:ui" : "playwright test --ui"
+    "test:e2e:record": "playwright test",
+    "test:e2e:record:ui": "playwright test --ui",
+    "test:e2e:replay": "cross-env PLAYWRIGHT_REPLAY=true playwright test",
+    "test:e2e:replay:ui": "cross-env PLAYWRIGHT_REPLAY=true playwright test --ui"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.75.5",
@@ -27,6 +29,7 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
+    "cross-env": "^7.0.3",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
