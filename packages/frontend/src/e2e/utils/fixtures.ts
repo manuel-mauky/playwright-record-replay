@@ -1,13 +1,8 @@
-import { test as testBase, type TestInfo, type Request } from "@playwright/test"
+import { test as testBase, type TestInfo } from "@playwright/test"
 import { BASE_API_URL } from "../../tasks-api.ts"
-
 import { join } from "node:path"
 
 const requestCounterMap = new Map<string, number>()
-
-function getRequestId(request: Request) {
-  return `${request.url()}_${request.method()}`
-}
 
 /**
  * Construct a testId string from Playwrights TestInfo
@@ -32,7 +27,7 @@ export const test = testBase.extend({
 
     const harFilePath = join("src", "e2e", "api-mock", testFileName.replace(".e2e.ts", ""), testId)
 
-    await page.routeFromHAR(harFilePath, {
+    await page.routeFromHAR(`${harFilePath}.json`, {
       url: `http://localhost:4000/**/*`,
 
       update: recordMode,
@@ -42,20 +37,16 @@ export const test = testBase.extend({
 
     await page.route("http://localhost:4000/**/*", async (route, request) => {
       const headers = await request.allHeaders()
-      const requestId = getRequestId(request)
+      const requestId = `${testId}_${request.url()}_${request.method()}`
 
-      const key = `${testId}_${requestId}`
-
-      const previousRequestCounter = requestCounterMap.get(key) ?? 0
+      const previousRequestCounter = requestCounterMap.get(requestId) ?? 0
       const currentRequestCounter = previousRequestCounter + 1
 
-      requestCounterMap.set(key, currentRequestCounter)
+      requestCounterMap.set(requestId, currentRequestCounter)
 
       return route.fallback({
         headers: {
           ...headers,
-          "X-PLAYWRIGHT-TEST-ID": getTestId(testInfo),
-          "X-PLAYWRIGHT-REQUEST-ID": requestId,
           "X-PLAYWRIGHT-REQUEST-COUNT": String(currentRequestCounter),
         },
       })

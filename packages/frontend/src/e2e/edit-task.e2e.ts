@@ -4,7 +4,6 @@ import { TasksPageObject } from "./tasks.page.ts"
 
 test.describe("edit tasks", () => {
   test("change to edit mode", async ({ page }) => {
-    console.log("run 1")
     const tasksPage = new TasksPageObject(page)
     await tasksPage.goto()
 
@@ -28,7 +27,6 @@ test.describe("edit tasks", () => {
   })
 
   test("edit title success", async ({ page }) => {
-    console.log("run 2")
     const tasksPage = new TasksPageObject(page)
     await tasksPage.goto()
 
@@ -54,7 +52,6 @@ test.describe("edit tasks", () => {
   })
 
   test("edit title cancel", async ({ page }) => {
-    console.log("run 3")
     const tasksPage = new TasksPageObject(page)
     await tasksPage.goto()
 
