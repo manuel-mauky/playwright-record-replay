@@ -1,0 +1,876 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "Playwright",
+      "version": "1.52.0"
+    },
+    "browser": {
+      "name": "chromium",
+      "version": "136.0.7103.25"
+    },
+    "entries": [
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "12"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"c-vYhJ+637j7hGzLiQJl8ECNUD9Wk\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"tasks\":[]}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"title\":\"Test 1\"}",
+            "params": []
+          }
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "52"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"34-+rSiNbe5B51Pqp3+UdK617HX14E\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"task\":{\"id\":0,\"title\":\"Test 1\",\"completed\":false}}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "2"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "55"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"37-f0r6d8KMfc3DYQ03Qbm8HoPD36k\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"tasks\":[{\"id\":0,\"title\":\"Test 1\",\"completed\":false}]}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "2"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"title\":\"Test 2\"}",
+            "params": []
+          }
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "52"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"34-poT2FyrrnexxoUhSqDSnVOdXYYQ\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"task\":{\"id\":1,\"title\":\"Test 2\",\"completed\":false}}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "3"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "99"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"63-puaL4XIQ64DOmagg41xukXR0B1w\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"tasks\":[{\"id\":0,\"title\":\"Test 1\",\"completed\":false},{\"id\":1,\"title\":\"Test 2\",\"completed\":false}]}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "POST",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "3"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "{\"title\":\"Test 3\"}",
+            "params": []
+          }
+        },
+        "response": {
+          "status": 201,
+          "statusText": "Created",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "52"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"34-4EroYr9yluPpHpU7KedjMxsSYL4\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"task\":{\"id\":2,\"title\":\"Test 3\",\"completed\":false}}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "4"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "143"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"8f-s3sHwyQyo5tJy4qjxy+mrho02Ow\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"tasks\":[{\"id\":0,\"title\":\"Test 1\",\"completed\":false},{\"id\":1,\"title\":\"Test 2\",\"completed\":false},{\"id\":2,\"title\":\"Test 3\",\"completed\":false}]}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "DELETE",
+          "url": "http://localhost:4000/tasks/1",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1
+        },
+        "response": {
+          "status": 204,
+          "statusText": "No Content",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "x-unknown"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": "",
+          "_failureText": "net::ERR_ABORTED"
+        },
+        "cache": null
+      },
+      {
+        "request": {
+          "method": "GET",
+          "url": "http://localhost:4000/tasks",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-US"
+            },
+            {
+              "name": "origin",
+              "value": "http://localhost:5173"
+            },
+            {
+              "name": "referer",
+              "value": "http://localhost:5173/"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "X-PLAYWRIGHT-REQUEST-COUNT",
+              "value": "5"
+            }
+          ],
+          "queryString": [],
+          "headersSize": -1,
+          "bodySize": -1
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "cookies": [],
+          "headers": [
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "99"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "name": "ETag",
+              "value": "W/\"63-dRCa+/4lCXofHYYV+aUyFJKMCUo\""
+            },
+            {
+              "name": "Keep-Alive",
+              "value": "timeout=5"
+            },
+            {
+              "name": "X-Powered-By",
+              "value": "Express"
+            }
+          ],
+          "content": {
+            "size": -1,
+            "mimeType": "application/json; charset=utf-8",
+            "text": "{\"tasks\":[{\"id\":0,\"title\":\"Test 1\",\"completed\":false},{\"id\":2,\"title\":\"Test 3\",\"completed\":false}]}"
+          },
+          "headersSize": -1,
+          "bodySize": -1,
+          "redirectURL": ""
+        },
+        "cache": null
+      }
+    ]
+  }
+}
