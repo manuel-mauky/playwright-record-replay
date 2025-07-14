@@ -3,8 +3,8 @@ import { expect } from "@playwright/test"
 import { TasksPageObject } from "./tasks.page.ts"
 
 test.describe("edit tasks", () => {
-  test("change to edit mode", async ({ page }) => {
-    const tasksPage = new TasksPageObject(page)
+  test("change to edit mode", async ({ page, baseURL }) => {
+    const tasksPage = new TasksPageObject(page, baseURL)
     await tasksPage.goto()
 
     // initial state
@@ -26,8 +26,8 @@ test.describe("edit tasks", () => {
     await expect(itemToEdit.editTextbox).toBeVisible()
   })
 
-  test("edit title success", async ({ page }) => {
-    const tasksPage = new TasksPageObject(page)
+  test("edit title success", async ({ page, baseURL }) => {
+    const tasksPage = new TasksPageObject(page, baseURL)
     await tasksPage.goto()
 
     // initial state
@@ -51,8 +51,8 @@ test.describe("edit tasks", () => {
     await expect(itemToEdit.editTextbox).not.toBeVisible()
   })
 
-  test("edit title cancel", async ({ page }) => {
-    const tasksPage = new TasksPageObject(page)
+  test("edit title cancel", async ({ page, baseURL }) => {
+    const tasksPage = new TasksPageObject(page, baseURL)
     await tasksPage.goto()
 
     // initial state

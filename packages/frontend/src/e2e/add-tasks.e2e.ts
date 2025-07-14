@@ -2,8 +2,8 @@ import { test } from "./utils/fixtures.ts"
 import { expect } from "@playwright/test"
 import { TasksPageObject } from "./tasks.page.ts"
 
-test("add task", async ({ page }) => {
-  const tasksPage = new TasksPageObject(page)
+test("add task", async ({ page, baseURL }) => {
+  const tasksPage = new TasksPageObject(page, baseURL)
   await tasksPage.goto()
 
   // initial state

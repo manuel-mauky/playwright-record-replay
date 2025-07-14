@@ -27,11 +27,7 @@
             },
             {
               "name": "origin",
-              "value": "http://localhost:5173"
-            },
-            {
-              "name": "referer",
-              "value": "http://localhost:5173/"
+              "value": "https://127.0.0.1:5173"
             },
             {
               "name": "user-agent",
@@ -125,11 +121,7 @@
             },
             {
               "name": "origin",
-              "value": "http://localhost:5173"
-            },
-            {
-              "name": "referer",
-              "value": "http://localhost:5173/"
+              "value": "https://127.0.0.1:5173"
             },
             {
               "name": "user-agent",
@@ -224,11 +216,7 @@
             },
             {
               "name": "origin",
-              "value": "http://localhost:5173"
-            },
-            {
-              "name": "referer",
-              "value": "http://localhost:5173/"
+              "value": "https://127.0.0.1:5173"
             },
             {
               "name": "user-agent",
@@ -322,11 +310,7 @@
             },
             {
               "name": "origin",
-              "value": "http://localhost:5173"
-            },
-            {
-              "name": "referer",
-              "value": "http://localhost:5173/"
+              "value": "https://127.0.0.1:5173"
             },
             {
               "name": "user-agent",
@@ -421,11 +405,7 @@
             },
             {
               "name": "origin",
-              "value": "http://localhost:5173"
-            },
-            {
-              "name": "referer",
-              "value": "http://localhost:5173/"
+              "value": "https://127.0.0.1:5173"
             },
             {
               "name": "user-agent",

@@ -2,14 +2,16 @@ import { expect, type Locator, type Page } from "@playwright/test"
 
 export class TasksPageObject {
   readonly page: Page
+  readonly baseUrl: string
 
   readonly addItemTextbox: Locator
   readonly addItemButton: Locator
   readonly taskList: Locator
   readonly taskItems: Locator
 
-  constructor(page: Page) {
+  constructor(page: Page, baseUrl: string | undefined) {
     this.page = page
+    this.baseUrl = baseUrl ?? ""
     this.addItemTextbox = page.getByRole("textbox")
     this.addItemButton = page.getByRole("button", { name: "Add" })
     this.taskList = page.getByTestId("task-list")
@@ -17,7 +19,7 @@ export class TasksPageObject {
   }
 
   async goto() {
-    await this.page.goto("http://localhost:5173")
+    await this.page.goto(this.baseUrl)
   }
 
   async addTask(title: string) {
