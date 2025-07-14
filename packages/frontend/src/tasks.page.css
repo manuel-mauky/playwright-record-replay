@@ -1,15 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.app-root {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
 .add-task-form {
   display: flex;
   gap: 0.5em;
