@@ -1,30 +1,46 @@
-import express from "express"
-import cors from "cors"
-import { router as tasksRouter, reset } from "./tasks.js"
+import { Hono } from "hono"
+import { cors } from "hono/cors"
+import { serve } from "@hono/node-server"
+import { reset, tasksRouter } from "./tasks.js"
+import { authMiddleware } from "./auth.js"
 
-const app = express()
+const app = new Hono()
 
-const port = process.env.PORT || 4000
+declare module "hono" {
+  interface ContextVariableMap {
+    userId: string | undefined
+  }
+}
 
-app.use(express.json())
-app.use(cors())
-app.use("/tasks", tasksRouter)
+app.use("*", cors())
+app.use("*", authMiddleware)
+app.route("/tasks", tasksRouter)
 
-app.get("/", (req, res) => {
-  res.contentType("application/json").send({
+app.get("/", (context) => {
+  const req = context.req
+
+  return context.json({
     _links: {
-      tasks: `http://${req.headers.host}/tasks`,
+      tasks: `http://${req.header("host")}/tasks`,
     },
   })
 })
 
-// Allow resetting for testing purposes
-// A real-world app should not have such an endpoint but should probably go to the database directly
-app.post("/debug/reset", (_, res) => {
+// // Allow resetting for testing purposes
+// // A real-world app should not have such an endpoint but should probably go to the database directly
+app.post("/debug/reset", (context) => {
   reset()
-  res.status(204).send()
+
+  context.status(201)
+  return context.text("Reset done")
 })
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`)
-})
+serve(
+  {
+    fetch: app.fetch,
+    port: 4000,
+  },
+  (info) => {
+    console.log(`Server running at "http://localhost:${info.port}`)
+  },
+)

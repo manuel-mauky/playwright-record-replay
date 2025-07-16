@@ -12,8 +12,13 @@
 }
 
 .app-header {
+  display: flex;
   background-color: #0c7d9d;
   color: white;
+
+  .spacer {
+    flex-grow: 1;
+  }
 
   a {
     display: inline-block;

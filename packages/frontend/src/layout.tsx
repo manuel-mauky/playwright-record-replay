@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router"
 import { cssTransition, ToastContainer } from "react-toastify"
 import { useMediaQuery } from "usehooks-ts"
 import "./layout.css"
+import { LoginTrigger } from "./login-trigger.tsx"
 
 const DisabledAnimation = cssTransition({
   enter: "noop",
@@ -20,6 +21,8 @@ export function Layout() {
           <Link to={"/"}>
             <strong>TodoApp</strong>
           </Link>
+          <div className="spacer" />
+          <LoginTrigger />
         </div>
         <div className="app-content">
           <Outlet />

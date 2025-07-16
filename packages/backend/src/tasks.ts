@@ -1,4 +1,10 @@
-import { Router, Request, Response } from "express"
+import { Context, Hono } from "hono"
+import { createMiddleware } from "hono/factory"
+
+export type User = {
+  id: string
+  tasks: Array<Task>
+}
 
 export type Task = {
   id: number
@@ -6,80 +12,124 @@ export type Task = {
   completed: boolean
 }
 
-export const router = Router()
-
-let tasks: Task[] = []
+let users: Map<string, User> = new Map()
 let idCounter = 0
 
-router.post("/", (req, res) => {
+function getOrCreateUser(id: string) {
+  const user = users.get(id)
+
+  if (user) {
+    return user
+  } else {
+    const newUser: User = {
+      id,
+      tasks: [],
+    }
+    users.set(id, newUser)
+    return newUser
+  }
+}
+
+const handleUserMiddleware = createMiddleware<{
+  Variables: {
+    user: User
+  }
+}>(async (context, next) => {
+  const userId = context.get("userId")
+  if (userId) {
+    const user = getOrCreateUser(userId)
+
+    context.set("user", user)
+
+    await next()
+  } else {
+    context.status(401)
+    return context.text("Unauthorized")
+  }
+})
+
+export const tasksRouter = new Hono().use(handleUserMiddleware)
+
+tasksRouter.post("/", async (context) => {
+  const user = context.get("user")
+
+  const body = await context.req.json()
+
   const newTask: Task = {
     id: idCounter++,
-    title: req.body.title,
+    title: body.title,
     completed: false,
   }
 
-  tasks.push(newTask)
+  user.tasks.push(newTask)
 
-  res.status(201).json({
+  context.status(201)
+
+  return context.json({
     task: newTask,
   })
 })
 
-router.get("/", (_, res) => {
-  res.json({
-    tasks,
-  })
+tasksRouter.get("/", handleUserMiddleware, (context) => {
+  const user = context.get("user")
+
+  return context.json({ tasks: user.tasks })
 })
 
-router.get("/:id", (req, res) => {
-  const task = getTask(req, res)
+tasksRouter.get("/:id", (context) => {
+  const user = context.get("user")
+  const task = getTask(user, context)
 
   if (task) {
-    res.json({
+    return context.json({
       task,
     })
+  } else {
+    return context.notFound()
   }
 })
 
-router.put("/:id", (req, res) => {
-  const task = getTask(req, res)
+tasksRouter.put("/:id", async (context) => {
+  const user = context.get("user")
+  const body = await context.req.json()
+
+  const task = getTask(user, context)
 
   if (task) {
-    task.title = req.body.title || task.title
-    task.completed = req.body.completed || task.completed
+    task.title = body.title || task.title
+    task.completed = body.completed || task.completed
 
-    res.json({ task })
+    return context.json({ task })
+  } else {
+    return context.notFound()
   }
 })
 
-router.delete("/:id", (req, res) => {
-  const task = getTask(req, res)
+tasksRouter.delete("/:id", (context) => {
+  const user = context.get("user")
+  const task = getTask(user, context)
 
   if (task) {
-    const index = tasks.indexOf(task)
-    tasks.splice(index, 1)
-    res.status(204).send()
+    const index = user.tasks.indexOf(task)
+    user.tasks.splice(index, 1)
+    return context.body(null, 204)
+  } else {
+    return context.notFound()
   }
 })
 
 /**
  * return the task with the id (from request).
- * If no task with the given id is found, the response is set to 404 and an error message is send
  */
-function getTask(req: Request, res: Response) {
-  const task = tasks.find((t) => t.id === Number.parseInt(req.params.id))
-
-  if (!task) {
-    res.status(404).send("Task not found")
-  } else {
-    return task
-  }
+function getTask(user: User, context: Context) {
+  const id = context.req.param("id")
+  return user.tasks.find((t) => t.id === Number.parseInt(id))
 }
 
 /**
  * used for testing. Resets the state of the tasks.
  */
 export function reset() {
-  tasks = []
+  users = new Map()
   idCounter = 0
 }
