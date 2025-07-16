@@ -1,0 +1,10 @@
+
+services:
+  kanidmd:
+    image: docker.io/kanidm/server:1.6.4
+    container_name: kanidmd
+    volumes:
+      - ./data:/data
+    ports:
+      - "8443:8443"
+      - "3636:3636"

@@ -1,0 +1,11 @@
+version = "2"
+
+bindaddress = "[::]:8443"
+
+db_path = "/data/kanidm.db"
+
+tls_chain = "/data/localhost.crt"
+tls_key = "/data/localhost.key"
+
+domain = "localhost"
+origin = "https://localhost:8443"
