@@ -5,7 +5,7 @@ import "./tasks.page.css"
 export function TasksPage() {
   return (
     <>
-      <h1>Tasks</h1>
+      <h1 data-testid="tasks-title">Tasks</h1>
       <AddTasksForm />
       <TaskList />
     </>

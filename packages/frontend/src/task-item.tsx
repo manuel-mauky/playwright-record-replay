@@ -20,6 +20,9 @@ export function TaskItem({ task }: { task: Task }) {
   const editMutation = useMutation({
     mutationFn: updateTask,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
+    onError: (error) => {
+      toast(`An error occurred: ${error.message}`)
+    },
   })
 
   const [editMode, setEditMode] = useState(false)

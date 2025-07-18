@@ -1,8 +1,8 @@
 import type { Task } from "playwright-record-replay-backend"
 import { getUser } from "./auth-config.ts"
+import { REST_API_URI } from "./config.ts"
 
-export const BASE_API_URL = "http://localhost:4000"
-const TASKS_API_URL = `${BASE_API_URL}/tasks`
+const TASKS_API_URL = `${REST_API_URI}/tasks`
 
 function createAuthHeader() {
   const user = getUser()

@@ -1,5 +1,9 @@
 import { expect, type Locator, type Page } from "@playwright/test"
 
+// see <ROOT>/kanidm/README.md
+const USERNAME = "demo_user"
+const PASSWORD = "7hQxJbNdkqNqLd"
+
 export class TasksPageObject {
   readonly page: Page
   readonly baseUrl: string
@@ -9,6 +13,8 @@ export class TasksPageObject {
   readonly taskList: Locator
   readonly taskItems: Locator
 
+  readonly loginButton: Locator
+
   constructor(page: Page, baseUrl: string | undefined) {
     this.page = page
     this.baseUrl = baseUrl ?? ""
@@ -16,10 +22,26 @@ export class TasksPageObject {
     this.addItemButton = page.getByRole("button", { name: "Add" })
     this.taskList = page.getByTestId("task-list")
     this.taskItems = this.taskList.getByRole("listitem")
+    this.loginButton = page.getByRole("button", { name: "Login" })
   }
 
   async goto() {
     await this.page.goto(this.baseUrl)
+
+    await this.login()
+  }
+
+  async login() {
+    await this.loginButton.click()
+    await expect(this.page).toHaveTitle(/Login/)
+
+    await this.page.getByRole("textbox", { name: "Username" }).fill(USERNAME)
+    await this.page.getByRole("button", { name: "Begin" }).click()
+    await this.page.getByRole("textbox", { name: "Password" }).fill(PASSWORD)
+    await this.page.getByRole("button", { name: "Submit" }).click()
+
+    await expect(this.page).toHaveTitle(/Task Example/)
+    await expect(this.page.getByTestId("tasks-title")).toBeVisible()
   }
 
   async addTask(title: string) {

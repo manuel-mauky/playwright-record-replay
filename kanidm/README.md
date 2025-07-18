@@ -10,7 +10,9 @@ Kanidm is now running at `https://localhost:8443`
 
 The setup includes two users:
 
-demo_user:7hQxJbNdkqNqLd demo_user2:BCVVfNdkxq86wP
+demo_user:7hQxJbNdkqNqLd
+
+demo_user2:BCVVfNdkxq86wP
 
 Admin account: This account is used via the `kanidm` CLI tool
 

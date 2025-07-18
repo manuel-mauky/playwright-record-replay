@@ -13,7 +13,7 @@ declare module "hono" {
 }
 
 app.use("*", cors())
-app.use("*", authMiddleware)
+app.use("/tasks/*", authMiddleware)
 app.route("/tasks", tasksRouter)
 
 app.get("/", (context) => {

@@ -1,7 +1,7 @@
 import { test } from "./utils/fixtures.ts"
 import { expect } from "@playwright/test"
 import { TasksPageObject } from "./tasks.page.ts"
-import { BASE_API_URL } from "../tasks-api.ts"
+import { REST_API_URI } from "../config.ts"
 
 test.describe("task-list", () => {
   test("has title", async ({ page, baseURL }) => {
@@ -12,7 +12,7 @@ test.describe("task-list", () => {
   })
 
   test("show error message when API is not available", async ({ page, baseURL }) => {
-    await page.route(`${BASE_API_URL}/**/*`, (route) => {
+    await page.route(`${REST_API_URI}/**/*`, (route) => {
       return route.abort("connectionrefused")
     })
 

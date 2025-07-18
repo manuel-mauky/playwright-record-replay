@@ -1,6 +1,6 @@
 import { test as testBase, type TestInfo } from "@playwright/test"
-import { BASE_API_URL } from "../../tasks-api.ts"
 import { join } from "node:path"
+import { REST_API_URI } from "../../config.ts"
 
 const requestCounterMap = new Map<string, number>()
 
@@ -16,7 +16,7 @@ export const test = testBase.extend({
     const recordMode = process.env.PLAYWRIGHT_REPLAY !== "true"
     if (recordMode) {
       // Reset the api/database. In a real-world app this will likely work differently
-      const response = await request.post(`${BASE_API_URL}/debug/reset`)
+      const response = await request.post(`${REST_API_URI}/debug/reset`)
       if (!response.ok()) {
         throw Error("Failed to reset tasks in backend")
       }
@@ -28,14 +28,14 @@ export const test = testBase.extend({
     const harFilePath = join("src", "e2e", "api-mock", testFileName.replace(".e2e.ts", ""), testId)
 
     await page.routeFromHAR(`${harFilePath}.json`, {
-      url: `http://localhost:4000/**/*`,
+      url: `${REST_API_URI}/**/*`,
 
       update: recordMode,
       updateContent: "embed",
       updateMode: "minimal",
     })
 
-    await page.route("http://localhost:4000/**/*", async (route, request) => {
+    await page.route(`${REST_API_URI}/**/*`, async (route, request) => {
       const headers = await request.allHeaders()
       const requestId = `${testId}_${request.url()}_${request.method()}`
 
