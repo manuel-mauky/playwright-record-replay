@@ -22,6 +22,14 @@ const filters: Array<Filter> = [
     key: "name",
     value: "Date",
   },
+  {
+    key: "name",
+    value: "authorization",
+  },
+  {
+    key: "name",
+    value: "Authorization",
+  },
 ]
 
 async function main() {

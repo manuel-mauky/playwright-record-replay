@@ -3,11 +3,11 @@
     "version": "1.2",
     "creator": {
       "name": "Playwright",
-      "version": "1.52.0"
+      "version": "1.54.1"
     },
     "browser": {
       "name": "chromium",
-      "version": "136.0.7103.25"
+      "version": "139.0.7258.5"
     },
     "entries": [
       {
@@ -27,15 +27,15 @@
             },
             {
               "name": "Origin",
-              "value": "https://127.0.0.1:5173"
+              "value": "https://localhost:5173"
             },
             {
               "name": "User-Agent",
-              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.7258.5 Safari/537.36"
             },
             {
               "name": "sec-ch-ua",
-              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+              "value": "\"Not;A=Brand\";v=\"99\", \"HeadlessChrome\";v=\"139\", \"Chromium\";v=\"139\""
             },
             {
               "name": "sec-ch-ua-mobile",
@@ -85,15 +85,15 @@
             },
             {
               "name": "Origin",
-              "value": "https://127.0.0.1:5173"
+              "value": "https://localhost:5173"
             },
             {
               "name": "User-Agent",
-              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.7258.5 Safari/537.36"
             },
             {
               "name": "sec-ch-ua",
-              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+              "value": "\"Not;A=Brand\";v=\"99\", \"HeadlessChrome\";v=\"139\", \"Chromium\";v=\"139\""
             },
             {
               "name": "sec-ch-ua-mobile",
@@ -143,15 +143,15 @@
             },
             {
               "name": "Origin",
-              "value": "https://127.0.0.1:5173"
+              "value": "https://localhost:5173"
             },
             {
               "name": "User-Agent",
-              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.7258.5 Safari/537.36"
             },
             {
               "name": "sec-ch-ua",
-              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+              "value": "\"Not;A=Brand\";v=\"99\", \"HeadlessChrome\";v=\"139\", \"Chromium\";v=\"139\""
             },
             {
               "name": "sec-ch-ua-mobile",
@@ -201,15 +201,15 @@
             },
             {
               "name": "Origin",
-              "value": "https://127.0.0.1:5173"
+              "value": "https://localhost:5173"
             },
             {
               "name": "User-Agent",
-              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36"
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.7258.5 Safari/537.36"
             },
             {
               "name": "sec-ch-ua",
-              "value": "\"Chromium\";v=\"136\", \"HeadlessChrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
+              "value": "\"Not;A=Brand\";v=\"99\", \"HeadlessChrome\";v=\"139\", \"Chromium\";v=\"139\""
             },
             {
               "name": "sec-ch-ua-mobile",
