@@ -43,14 +43,14 @@ const JWKS = jose.createRemoteJWKSet(new URL("https://localhost:8443/oauth2/open
 export const authMiddleware: MiddlewareHandler = bearerAuth({
   verifyToken: async (token, context) => {
     try {
-      const { payload } = await await jose.jwtVerify(token, JWKS)
+      const { payload } = await jose.jwtVerify(token, JWKS)
 
       if (isUserIdToken(payload)) {
         if (payload.scope.includes(requiredScope)) {
           context.set("userId", payload.sub)
           return true
         } else {
-          console.log("Token doesn't contain required scope 'todo_app'")
+          console.log(`Token doesn't contain required scope '${requiredScope}'`)
         }
       } else {
         console.log("Not a valid OpenID Connect User Token")

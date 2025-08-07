@@ -1,10 +1,10 @@
 Bootstrap a local OAuth server (kanidm).
 
-1. Create and start the container `docker compose up -D`
+1. Create and start the container `docker compose up -d`
 
 2. Import data from backup `./restore.sh`
 
-3. Start the container again `docker compose up -D`
+3. Start the container again `docker compose up -d`
 
 Kanidm is now running at `https://localhost:8443`
 
