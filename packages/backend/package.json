@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "private": true,
-  "types": "./dist/@types",
+  "types": "./dist/@types/index.d.ts",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
